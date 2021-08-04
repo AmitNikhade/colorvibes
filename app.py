@@ -73,7 +73,7 @@ def model_predict(img_path, model):
     pp[:,:,0] = im[:,:,0]
     pp[:,:,1:] = pred
     decodings = lab2rgb(pp)
-    pyplot.imsave("img_5.jpg", lab2rgb(pp))
+    pyplot.imsave("static/images/img_5.jpg", lab2rgb(pp))
     return "hello"
 
 @app.route('/', methods=['GET'])
@@ -98,15 +98,19 @@ def upload():
 
         # Make prediction
         result = model_predict(file_path, model)
+        
+        
+        
 
         # Process your result for human
         # pred_class = preds.argmax(axis=-1)            # Simple argmax
         # pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
         # result = str(pred_class[0][0][1])               # Convert to string
         return result
+        
     return None
-
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
-
+    

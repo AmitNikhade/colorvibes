@@ -24,7 +24,7 @@ from skimage.transform import resize
 
 
 
-MODEL_PATH = 'dist/model/Model.h5'
+MODEL_PATH = 'static/model/Model2.h5'
 
 from tensorflow.keras.applications.nasnet import NASNetLarge
 inception = NASNetLarge(weights='imagenet', include_top=True)
@@ -62,5 +62,5 @@ def model_predict(img_path, model):
     pp[:,:,0] = im[:,:,0]
     pp[:,:,1:] = pred
     decodings = lab2rgb(pp)
-    pyplot.imsave("img_5.jpg", lab2rgb(pp))
+    pyplot.imsave("img_6.jpg", lab2rgb(pp))
 model_predict(img_path, model)

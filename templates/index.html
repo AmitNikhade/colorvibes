@@ -27,8 +27,8 @@
                         <h1 href="https://amitnikhade.com/" class="  innerdiv m-0">
                            
 								
-					<img width="45" height="45"  src="static/images/artificial-intelligence.png" alt="AI">
-                    <p style="font-size: 8px; margin-left: -1rem; margin-top: -1rem;">Powered by- Amit Nikhade</p>   </h1>
+					<img width="45" height="45"  src="static/images/icon.png"  alt="AI">
+                    <p  style="font-size: 8px; margin-left: -1rem; margin-top: -1rem;">Powered by- Amit Nikhade </p>    </h1>
                     </a>
 						<h3 class="innerdiv2 gjk" >Image Colorization.</h3>
                     </div>
@@ -42,12 +42,7 @@
             
             <section class="hero">
                 <div class="container">
-					<form id="upload-file" method="post" enctype="multipart/form-data">
-                        <label for="imageUpload" class="upload-label">
-                            Choose...
-                        </label>
-                        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
-                    </form>
+					
                 
                     <div class="hero-inner">
 						<div class="hero-copy">
@@ -57,14 +52,22 @@
 							
 								<div class="control">
 									<!-- <a class="button button-primary button-block"  href="#">Upload Photo</a> -->
-                                    <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg"></div>
+                                    <!-- <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg"></div> -->
 							</div>
-                            <div>
-                                <button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
-                            </div>
+                            <form id="upload-file" method="post" enctype="multipart/form-data">
+                        <label for="imageUpload" class="upload-label">
+                            
+                        </label>
+                        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+                    </form>
+                           
 						</div>
+                        <div>
+                            <button   type="button" class="btn btn-primary btn-lg " id="btn-predict" style="margin-top:25px;">Predict!</button>
+                        </div>
 						<div class="loader" style="display:none;"></div>
-                        <img width="256" height="256"  src="/home/lucifer/Documents/webapp_template/amit/img_5.jpg" alt="">
+                        <img width="256" height="256"  src="static/images/img_5.jpg" alt="" style="margin-top:45px;">
+                        <h6 style="color:rgb(194, 194, 194);">Colored Image </h6>
                     </div>
                 </div>
             </section>
@@ -77,7 +80,7 @@
                 <div class="site-footer-inner has-top-divider">
                     <div class="brand footer-brand">
                         <a href="#">
-							<img width="45" height="45"  src="static/images/result.png" alt="AI">
+							<img width="45" height="45"  src="static/images/icon.png" href="https://amitnikhade.com/" alt="AI">
                     <p style="font-size: 8px; margin-left: -1rem; margin-top: -0.20rem;">Powered by- Amit Nikhade</p>   </h1>
                   
                         </a>
