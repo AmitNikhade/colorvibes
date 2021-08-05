@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
     <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700|Fira+Sans:600" rel="stylesheet">
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', media='all', filename='css/style.css') }}">
     <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">    
+    <link href="{{ url_for('static', media='all', filename='css/style.css') }}" rel="stylesheet">    
     <!-- <script src="/home/lucifer/Documents/webapp_template/amit/dist/js/main.js"></script>   -->
 
 </head>
@@ -66,7 +69,7 @@
                             <button   type="button" class="btn btn-primary btn-lg " id="btn-predict" style="margin-top:25px;">Predict!</button>
                         </div>
 						<div class="loader" style="display:none;"></div>
-                        <img width="256" height="256"  src="static/images/img_5.jpg" alt="" style="margin-top:45px;">
+                       <figure> <img width="256" height="256"  src="static/images/img2.png" id="result" alt="gh" style="margin-top:45px;"> </figure> 
                         <h6 style="color:rgb(194, 194, 194);">Colored Image </h6>
                     </div>
                 </div>
@@ -80,7 +83,7 @@
                 <div class="site-footer-inner has-top-divider">
                     <div class="brand footer-brand">
                         <a href="#">
-							<img width="45" height="45"  src="static/images/icon.png" href="https://amitnikhade.com/" alt="AI">
+							<img width="45" height="45"  src="static/images/icon.png?n=1" href="https://amitnikhade.com/" alt="AI">
                     <p style="font-size: 8px; margin-left: -1rem; margin-top: -0.20rem;">Powered by- Amit Nikhade</p>   </h1>
                   
                         </a>
@@ -92,7 +95,7 @@
             </div>
         </footer>
     </div>
-    <script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>   
+    <script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript" data-turbolinks-track="reload"></script>   
 
 </body>
 </html>

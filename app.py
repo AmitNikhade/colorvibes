@@ -21,9 +21,18 @@ from flask import Flask, redirect, url_for, request, render_template
 from werkzeug.utils import secure_filename
 from gevent.pywsgi import WSGIServer
 from skimage.transform import resize
-# Define a flask app
-app = Flask(__name__)
 
+# Define a flask app
+
+app = Flask(__name__)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 1
+
+@app.after_request
+def add_header(response):
+    # response.cache_control.no_store = True
+    if 'Cache-Control' not in response.headers:
+        response.headers['Cache-Control'] = 'no-store'
+    return response
 
 MODEL_PATH = '/home/lucifer/Documents/webapp_template/amit/static/model/Model.h5'
 
@@ -54,8 +63,15 @@ print('Model loaded. Check http://127.0.0.1:5000/')
 
     
     
-def model_predict(img_path, model):
+def model_predict(img_path, model, filename):
+    # if os.path.exists("static/images/images/"+filename) is True:
+    #     os.remove("static/images/images/"+filename)
+    # else:
+    #     pass
+    
     img = cv2.imread(img_path)
+    # if os.path.exists("static/images/img2.png") is True:
+    #     os.remove("static/images/img2.png")
     img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
     img = [cv2.resize(img, (256,256))]
     test = np.array(img).astype('float32') / 255.
@@ -75,32 +91,50 @@ def model_predict(img_path, model):
         pp[:,:,0] = im[i][:,:,0]
         pp[:,:,1:] = pred[i]
         decodings[i] = lab2rgb(pp)
-        pyplot.imsave("static/images/img_5.jpg", lab2rgb(pp))
         
+    if os.path.exists("static/uploads/"+filename) is True:
+        os.remove("static/uploads/"+filename)
+        
+    if os.path.exists("static/images/img2.png") is True:
+        os.remove("static/images/img2.png")
+        if os.path.exists("static/images/img2.png") is False:
+            pyplot.imsave("static/images/img2.png", lab2rgb(pp))
+    else:
+        pyplot.imsave("static/images/img2.png", lab2rgb(pp))
+        # pass
+    
+    
     return "hello"
 
 @app.route('/', methods=['GET'])
 def index():
     # Main page
+    # if os.path.exists("static/images/img2.png") is True:
+    #     os.remove("static/images/img2.png")
     return render_template('index.html')
 
 
 @app.route('/predict', methods=['GET', 'POST'])
 def upload():
     if request.method == 'POST':
+        if os.path.exists("static/images/img2.png") is True:
+            os.remove("static/images/img2.png")
         # Get the file from post request
         f = request.files['file']
 
         # Save the file to ./uploads
         basepath = os.path.dirname(__file__)
         file_path = os.path.join(
-            basepath, 'uploads', secure_filename(f.filename))
-        print("############################################################",file_path)
-        f.save(file_path)
+            basepath, 'static/uploads', secure_filename(f.filename))
+        print("############################################################",f.filename)
+        try:
+            f.save(file_path)
+        except Exception as ex:
+            print("no file")
         
 
         # Make prediction
-        result = model_predict(file_path, model)
+        result = model_predict(file_path, model, f.filename)
         
         
         
@@ -108,12 +142,16 @@ def upload():
         # Process your result for human
         # pred_class = preds.argmax(axis=-1)            # Simple argmax
         # pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
-        # result = str(pred_class[0][0][1])               # Convert to string
+        # result = str(pred_class[0][0][1])  
+        # Convert to string
+        
         return result
         
     return None
     
 
 if __name__ == '__main__':
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
+    app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
     app.run(debug=True)
     
