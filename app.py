@@ -69,11 +69,14 @@ def model_predict(img_path, model):
     pred = pred * 128
 
     decodings = np.zeros((len(pred),256, 256, 3))
-    pp = np.zeros((256, 256, 3))
-    pp[:,:,0] = im[:,:,0]
-    pp[:,:,1:] = pred
-    decodings = lab2rgb(pp)
-    pyplot.imsave("static/images/img_5.jpg", lab2rgb(pp))
+  
+    for i in range(len(pred)):
+        pp = np.zeros((256, 256, 3))
+        pp[:,:,0] = im[i][:,:,0]
+        pp[:,:,1:] = pred[i]
+        decodings[i] = lab2rgb(pp)
+        pyplot.imsave("static/images/img_5.jpg", lab2rgb(pp))
+        
     return "hello"
 
 @app.route('/', methods=['GET'])
