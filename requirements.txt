@@ -1,5 +1,5 @@
 Flask==1.1.2
-gunicorn
+gunicorn==19.9.0
 itsdangerous
 Jinja2
 MarkupSafe
