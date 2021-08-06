@@ -8,5 +8,5 @@ numpy>=1.19.5
 scikit-image
 matplotlib>=3.3.4
 tensorflow-cpu==1.15
-opencv-python-headless==4.2.0.32
+opencv-python==4.2.0.34
 mysql-connector-python
