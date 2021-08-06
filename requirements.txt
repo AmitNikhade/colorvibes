@@ -9,4 +9,4 @@ scikit-image==0.18.2
 matplotlib>=3.3.4
 keras
 opencv-python
-
+mysql-connector-python
