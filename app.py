@@ -5,16 +5,16 @@ import os
 import glob
 import re
 import numpy as np
-import tensorflow as tf
+# import tensorflow as tf
 from matplotlib import pyplot
 import cv2
 from skimage.color import rgb2gray, gray2rgb, rgb2lab, lab2rgb
 import matplotlib.pyplot as plt
 
 # Keras
-from tensorflow.keras.applications.imagenet_utils import preprocess_input, decode_predictions
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import image
+from keras.applications.imagenet_utils import preprocess_input, decode_predictions
+from keras.models import load_model
+from keras.preprocessing import image
 
 # Flask utils
 from flask import Flask, redirect, url_for, request, render_template

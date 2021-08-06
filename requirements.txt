@@ -7,6 +7,6 @@ Werkzeug
 numpy>=1.19.5
 scikit-image==0.18.2
 matplotlib>=3.3.4
-tensorflow-cpu==2.5.0
+keras
 opencv-python
 
