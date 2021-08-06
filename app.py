@@ -13,14 +13,14 @@ from datetime import datetime
 # import matplotlib.pyplot as plt
 
 # Keras
-from keras.applications.imagenet_utils import preprocess_input, decode_predictions
+# from keras.applications.imagenet_utils import preprocess_input, decode_predictions
 # from keras.models import load_model
 # from keras.preprocessing import image
 
 # Flask utils
 from flask import Flask, redirect, url_for, request, render_template
-from werkzeug.utils import secure_filename
-from gevent.pywsgi import WSGIServer
+# from werkzeug.utils import secure_filename
+# from gevent.pywsgi import WSGIServer
 # from skimage.transform import resize
 app = Flask(__name__)
 
