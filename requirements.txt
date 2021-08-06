@@ -1,0 +1,13 @@
+Flask==1.1.2
+gunicorn
+itsdangerous
+Jinja2
+MarkupSafe
+Werkzeug
+numpy>=1.19.5
+scikit-image==0.18.2
+matplotlib>=3.3.4
+pandas>=0.19
+tensorflow==2.4.19
+opencv-python==4.5.2
+
