@@ -4,9 +4,9 @@ itsdangerous
 Jinja2
 MarkupSafe
 Werkzeug
-numpy>=1.19.5
-scikit-image==0.18.2
-matplotlib>=3.3.4
-keras
-opencv-python
+# numpy>=1.19.5
+# scikit-image==0.18.2
+# matplotlib>=3.3.4
+# keras
+# opencv-python
 mysql-connector-python
