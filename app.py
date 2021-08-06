@@ -34,7 +34,7 @@ def add_header(response):
         response.headers['Cache-Control'] = 'no-store'
     return response
 
-MODEL_PATH = '/home/lucifer/Documents/webapp_template/amit/static/model/Model.h5'
+MODEL_PATH = 'static/model/Model.h5'
 
 from tensorflow.keras.applications.nasnet import NASNetLarge
 inception = NASNetLarge(weights='imagenet', include_top=True)
