@@ -19,9 +19,9 @@ from tensorflow.keras.preprocessing import image
 
 # Flask utils
 from flask import Flask, redirect, url_for, request, render_template
-# from werkzeug.utils import secure_filename
-# from gevent.pywsgi import WSGIServer
-# from skimage.transform import resize
+from werkzeug.utils import secure_filename
+from gevent.pywsgi import WSGIServer
+from skimage.transform import resize
 app = Flask(__name__)
 
 @app.route('/')
