@@ -1,16 +1,16 @@
-# Flask
-# flask
-# gunicorn
-itsdangerous
-Jinja2
-MarkupSafe
-Werkzeug
-numpy
-scikit-image
-matplotlib
-tensorflow-cpu
-# opencv-contrib-python-headless
-# opencv-python
-mysql-connector-python
+# # Flask
+# # flask
+# # gunicorn
+# itsdangerous
+# Jinja2
+# MarkupSafe
+# Werkzeug
+# numpy
+# scikit-image
+# matplotlib
+# tensorflow-cpu==1.15
+# # opencv-contrib-python-headless
+# # opencv-python
+# mysql-connector-python
 Flask
 gunicorn
