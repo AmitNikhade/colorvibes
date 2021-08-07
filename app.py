@@ -7,10 +7,10 @@ import re
 import numpy as np
 from datetime import datetime
 # import tensorflow as tf
-# from matplotlib import pyplot
+from matplotlib import pyplot
 # # import cv2
 # from skimage.color import rgb2gray, gray2rgb, rgb2lab, lab2rgb
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 # Keras
 from tensorflow.keras.applications.imagenet_utils import preprocess_input, decode_predictions
