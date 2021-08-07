@@ -9,8 +9,8 @@
 # scikit-image
 # matplotlib
 # tensorflow-cpu
-# opencv-contrib-python-headless
-# opencv-python
+opencv-contrib-python-headless
+opencv-python
 # mysql-connector-python
 
 Flask
