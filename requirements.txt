@@ -4,7 +4,7 @@
 itsdangerous
 Jinja2
 MarkupSafe
-Werkzeug==0.8.3
+# Werkzeug==0.8.3
 numpy
 scikit-image
 matplotlib
