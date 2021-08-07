@@ -7,10 +7,10 @@ import re
 import numpy as np
 from datetime import datetime
 # import tensorflow as tf
-from matplotlib import pyplot
-# import cv2
-from skimage.color import rgb2gray, gray2rgb, rgb2lab, lab2rgb
-import matplotlib.pyplot as plt
+# from matplotlib import pyplot
+# # import cv2
+# from skimage.color import rgb2gray, gray2rgb, rgb2lab, lab2rgb
+# import matplotlib.pyplot as plt
 
 # Keras
 from tensorflow.keras.applications.imagenet_utils import preprocess_input, decode_predictions
@@ -19,9 +19,9 @@ from tensorflow.keras.preprocessing import image
 
 # Flask utils
 from flask import Flask, redirect, url_for, request, render_template
-from werkzeug.utils import secure_filename
-from gevent.pywsgi import WSGIServer
-from skimage.transform import resize
+# from werkzeug.utils import secure_filename
+# from gevent.pywsgi import WSGIServer
+# from skimage.transform import resize
 app = Flask(__name__)
 
 @app.route('/')
