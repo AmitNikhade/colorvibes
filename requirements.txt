@@ -4,13 +4,13 @@
 itsdangerous
 Jinja2
 MarkupSafe
-# Werkzeug
+Werkzeug
 numpy
 scikit-image
 matplotlib
 tensorflow-cpu==2.2.0
-opencv-contrib-python-headless
-opencv-python
+# opencv-contrib-python-headless
+# opencv-python
 mysql-connector-python
 Flask
 gunicorn
