@@ -7,7 +7,7 @@
 # # Werkzeug
 # numpy
 scikit-image
-matplotlib
+Pillow
 tensorflow-cpu==1.15
 # # opencv-contrib-python-headless
 # # opencv-python
