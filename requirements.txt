@@ -9,8 +9,8 @@ numpy
 scikit-image
 matplotlib
 tensorflow-cpu==1.15
-# # opencv-contrib-python-headless
-# # opencv-python
+opencv-contrib-python-headless
+opencv-python
 mysql-connector-python
 Flask
 gunicorn
