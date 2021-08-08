@@ -8,7 +8,7 @@ MarkupSafe
 numpy
 scikit-image
 matplotlib
-tensorflow-cpu==1.15
+tensorflow-cpu==2.2.0
 opencv-contrib-python-headless
 opencv-python
 mysql-connector-python
