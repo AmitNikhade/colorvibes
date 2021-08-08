@@ -4,6 +4,8 @@ $(document).ready(function () {
     $('.loader').hide();
     $('#result').hide();
 
+    
+
     // Upload Preview
     function readURL(input) {
         if (input.files && input.files[0]) {

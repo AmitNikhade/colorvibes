@@ -5,6 +5,7 @@ import os
 import glob
 import re
 import numpy as np
+import PIL
 # import tensorflow as tf
 from matplotlib import pyplot
 # import cv2
@@ -73,9 +74,9 @@ def model_predict(img_path, model, filename):
     # if os.path.exists("static/images/img2.png") is True:
     #     os.remove("static/images/img2.png")
     # img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
-    im = Image.open(TestImagePath+file) #These two lines
+    im = PIL.Image.open(img_path) #These two lines
     b, g, r = im.split()
-    im = Image.merge("RGB", (r, g, b))
+    im = PIL.Image.merge("RGB", (r, g, b))
     img = im.resize((256,256))
     img = [np.array(img)]
     # img = [cv2.resize(img, (256,256))]
