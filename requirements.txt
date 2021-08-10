@@ -9,7 +9,7 @@
 scikit-image
 Pillow
 h5py==2.9.0
-# tensorflow==2.4.1
+tensorflow-cpu==1.15
 keras==2.4.3
 gevent
 # # opencv-contrib-python-headless
