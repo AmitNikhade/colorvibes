@@ -1,24 +1,24 @@
 from __future__ import division, print_function
 # coding=utf-8
-import sys
+
 import os
-import glob
-import re
+
 import numpy as np
-import PIL
+from PIL import Image
+
 # import tensorflow as tf
 from matplotlib import pyplot
 # import cv2
 from skimage.color import rgb2gray, gray2rgb, rgb2lab, lab2rgb
-import matplotlib.pyplot as plt
+
 
 # Keras
-from keras.applications.imagenet_utils import preprocess_input, decode_predictions
-from keras.models import load_model
-from keras.preprocessing import image
+
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing import image
 
 # Flask utils
-from flask import Flask, redirect, url_for, request, render_template
+from flask import Flask, request, render_template
 from werkzeug.utils import secure_filename
 from gevent.pywsgi import WSGIServer
 from skimage.transform import resize
@@ -35,15 +35,16 @@ def add_header(response):
         response.headers['Cache-Control'] = 'no-store'
     return response
 
-MODEL_PATH = 'static/model/Model.h5'
+MODEL_PATH = 'static/model/Model_final2.h5'
 
-from keras.applications.nasnet import NASNetLarge
-inception = NASNetLarge(weights='imagenet', include_top=True)
+# from keras.applications.nasnet import NASNetLarge
+from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2, preprocess_input
+inception = MobileNetV2(weights='imagenet', include_top=True)
 
 def inception_embedding(gray_rgb):
     def resize_gray(x):
 #         return resize(x, (299, 299, 3), mode='constant')
-        return resize(x, (331, 331, 3), mode='constant')
+        return resize(x, (224, 224, 3), mode='constant')
     rgb = np.array([resize_gray(x) for x in gray_rgb])
     rgb = preprocess_input(rgb)
     embed = inception.predict(rgb)
@@ -51,32 +52,17 @@ def inception_embedding(gray_rgb):
 
 # Load your trained model
 model = load_model(MODEL_PATH)
-# model._make_predict_function()          # Necessary
-# print('Model loaded. Start serving...')
 
-# You can also use pretrained model from Keras
-# Check https://keras.io/applications/
-#from keras.applications.resnet50 import ResNet50
-#model = ResNet50(weights='imagenet')
-#model.save('')
 print('Model loaded. Check http://127.0.0.1:5000/')
 
 
     
     
 def model_predict(img_path, model, filename):
-    # if os.path.exists("static/images/images/"+filename) is True:
-    #     os.remove("static/images/images/"+filename)
-    # else:
-    #     pass
     
-    # img = cv2.imread(img_path)
-    # if os.path.exists("static/images/img2.png") is True:
-    #     os.remove("static/images/img2.png")
-    # img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
-    im = PIL.Image.open(img_path) #These two lines
+    im = Image.open(img_path) #These two lines
     b, g, r = im.split()
-    im = PIL.Image.merge("RGB", (r, g, b))
+    im = Image.merge("RGB", (r, g, b))
     img = im.resize((256,256))
     img = [np.array(img)]
     # img = [cv2.resize(img, (256,256))]
@@ -89,7 +75,6 @@ def model_predict(img_path, model, filename):
 
     pred = model.predict([im, im_embed])
     pred = pred * 128
-
     decodings = np.zeros((len(pred),256, 256, 3))
   
     for i in range(len(pred)):
@@ -141,16 +126,7 @@ def upload():
 
         # Make prediction
         result = model_predict(file_path, model, f.filename)
-        
-        
-        
-
-        # Process your result for human
-        # pred_class = preds.argmax(axis=-1)            # Simple argmax
-        # pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
-        # result = str(pred_class[0][0][1])  
-        # Convert to string
-        
+   
         return result
         
     return None
