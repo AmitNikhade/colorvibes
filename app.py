@@ -13,7 +13,7 @@ from skimage.color import rgb2gray, gray2rgb, rgb2lab, lab2rgb
 
 
 # Keras
-
+import keras
 from keras.models import load_model
 from keras.preprocessing import image
 
@@ -51,7 +51,7 @@ def inception_embedding(gray_rgb):
     return embed
 
 # Load your trained model
-model = load_model(MODEL_PATH)
+model = load_model(MODEL_PATH, custom_objects={'Functional':keras.models.Model})
 
 print('Model loaded. Check http://127.0.0.1:5000/')
 
