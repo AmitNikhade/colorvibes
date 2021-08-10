@@ -14,8 +14,8 @@ from skimage.color import rgb2gray, gray2rgb, rgb2lab, lab2rgb
 
 # Keras
 
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import image
+from keras.models import load_model
+from keras.preprocessing import image
 
 # Flask utils
 from flask import Flask, request, render_template
@@ -35,10 +35,10 @@ def add_header(response):
         response.headers['Cache-Control'] = 'no-store'
     return response
 
-MODEL_PATH = 'static/model/Model_final2.h5'
+MODEL_PATH = 'static/model/Model_final3.h5'
 
 # from keras.applications.nasnet import NASNetLarge
-from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2, preprocess_input
+from keras.applications.mobilenet_v2 import MobileNetV2, preprocess_input
 inception = MobileNetV2(weights='imagenet', include_top=True)
 
 def inception_embedding(gray_rgb):
