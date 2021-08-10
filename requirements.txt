@@ -8,7 +8,7 @@
 # numpy
 scikit-image
 Pillow
-h5py==2.10.0
+h5py==2.9.0
 tensorflow-cpu==1.15
 # keras
 gevent
