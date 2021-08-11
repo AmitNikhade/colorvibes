@@ -39,7 +39,8 @@ MODEL_PATH = 'static/model/Model_final6.h5'
 
 # from tensorflow.keras.applications.nasnet import NASNetLarge
 from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2, preprocess_input
-inception = MobileNetV2(weights='imagenet', include_top=True)
+inception = MobileNetV2(weights=None, include_top=True)
+inception.load_weights('static/model/MNV2.h5')
 
 def inception_embedding(gray_rgb):
     def resize_gray(x):
