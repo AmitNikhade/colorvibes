@@ -14,7 +14,7 @@ from skimage.color import rgb2gray, gray2rgb, rgb2lab, lab2rgb
 
 # Keras
 
-from keras.models import load_model
+# from keras.models import load_model
 from keras.preprocessing import image
 
 # Flask utils
@@ -50,6 +50,7 @@ def inception_embedding(gray_rgb):
     embed = inception.predict(rgb)
     return embed
 
+from tensorflow.keras.models import load_model
 # Load your trained model
 model = load_model(MODEL_PATH)
 
