@@ -35,7 +35,7 @@ def add_header(response):
         response.headers['Cache-Control'] = 'no-store'
     return response
 
-MODEL_PATH = 'static/model/Model_final5.h5'
+MODEL_PATH = 'static/model/Model_final6.h5'
 
 # from tensorflow.keras.applications.nasnet import NASNetLarge
 from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2, preprocess_input
