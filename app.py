@@ -13,7 +13,7 @@ from skimage.color import rgb2gray, gray2rgb, rgb2lab, lab2rgb
 
 
 # Keras
-import keras
+
 from keras.models import load_model
 from keras.preprocessing import image
 
@@ -35,7 +35,7 @@ def add_header(response):
         response.headers['Cache-Control'] = 'no-store'
     return response
 
-MODEL_PATH = 'static/model/Model_final3.h5'
+MODEL_PATH = 'static/model/Model_final4.h5'
 
 # from keras.applications.nasnet import NASNetLarge
 from keras.applications.mobilenet_v2 import MobileNetV2, preprocess_input
@@ -51,7 +51,7 @@ def inception_embedding(gray_rgb):
     return embed
 
 # Load your trained model
-model = load_model(MODEL_PATH, custom_objects={'Functional':keras.models.Model})
+model = load_model(MODEL_PATH)
 
 print('Model loaded. Check http://127.0.0.1:5000/')
 
