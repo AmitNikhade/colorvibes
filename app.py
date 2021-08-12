@@ -26,16 +26,21 @@ from skimage.transform import resize
 # Define a flask app
 
 app = Flask(__name__)
-app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 1
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 @app.after_request
-def add_header(response):
-    # response.cache_control.no_store = True
-    if 'Cache-Control' not in response.headers:
-        response.headers['Cache-Control'] = 'no-store'
-    return response
+def add_header(r):
+    """
+    Add headers to both force latest IE rendering engine or Chrome Frame,
+    and also to cache the rendered page for 10 minutes.
+    """
+    r.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    r.headers["Pragma"] = "no-cache"
+    r.headers["Expires"] = "0"
+    r.headers['Cache-Control'] = 'public, max-age=0'
+    return r
 
-MODEL_PATH = 'static/model/Model_final6.h5'
+MODEL_PATH = 'static/model/Model_final2.h5'
 
 # from tensorflow.keras.applications.nasnet import NASNetLarge
 from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2, preprocess_input
