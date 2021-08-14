@@ -36,6 +36,7 @@ Training the model with custom data
   To use the web app you just need to browse the image from your local machine and press the predict button, you'll get teh coloured image within some seconds.
 
 ## Deployment
+![Link](https://colorvibes.herokuapp.com/)
 Basically the project is deployed on Heroku. It was pretty much easier for me to deploy my model on Heroku. Even I have to face certain problem related to versioning of deep learning frameworks. 
 
 ![Logo](https://coursework.vschool.io/content/images/size/w2000/2017/12/Image-result-for-heroku-photo-banner.png)
