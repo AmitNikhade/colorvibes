@@ -65,6 +65,8 @@ print('Model loaded. Check http://127.0.0.1:5000/')
 
     
     
+# @app.route('/', methods = ['POST', 'GET'])
+# @app.route('/model_predict', methods = ['POST', 'GET'])
 def model_predict(img_path, model, filename):
     
     im = Image.open(img_path) #These two lines
@@ -90,19 +92,27 @@ def model_predict(img_path, model, filename):
         pp[:,:,1:] = pred[i]
         decodings[i] = lab2rgb(pp)
         
-    if os.path.exists("static/uploads/"+filename) is True:
-        os.remove("static/uploads/"+filename)
+    import time
+    new_graph_name = "graph" + str(time.time()) + ".png"
+
+    for filename in os.listdir('static/'):
+        if filename.startswith('graph'):  # not to remove other images
+            os.remove('static/' + filename)
+    pyplot.imsave("static/"+new_graph_name, lab2rgb(pp))
+    # if os.path.exists("static/uploads/"+filename) is True:
+    #     os.remove("static/uploads/"+filename)
         
-    if os.path.exists("static/images/img2.png") is True:
-        os.remove("static/images/img2.png")
-        if os.path.exists("static/images/img2.png") is False:
-            pyplot.imsave("static/images/img2.png", lab2rgb(pp))
-    else:
-        pyplot.imsave("static/images/img2.png", lab2rgb(pp))
-        # pass
+    # if os.path.exists("static/images/img2.png") is True:
+    #     os.remove("static/images/img2.png")
+    #     if os.path.exists("static/images/img2.png") is False:
+    #         pyplot.imsave("static/images/img2.png", lab2rgb(pp))
+    # else:
+    #     os.mkdir()
+    #     pyplot.imsave("static/images/img2.png", lab2rgb(pp))
+    #     # pass
     
-    
-    return "hello"
+    return new_graph_name
+    # return render_template('index.html', graph=new_graph_name)
 
 @app.route('/', methods=['GET'])
 def index():
@@ -115,8 +125,8 @@ def index():
 @app.route('/predict', methods=['GET', 'POST'])
 def upload():
     if request.method == 'POST':
-        if os.path.exists("static/images/img2.png") is True:
-            os.remove("static/images/img2.png")
+        # if os.path.exists("static/images/img2.png") is True:
+        #     os.remove("static/images/img2.png")
         # Get the file from post request
         f = request.files['file']
 
@@ -133,8 +143,8 @@ def upload():
 
         # Make prediction
         result = model_predict(file_path, model, f.filename)
-   
-        return result
+        # print(result)
+        return render_template('index.html', result), result
         
     return None
     

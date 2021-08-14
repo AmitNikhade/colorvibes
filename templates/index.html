@@ -69,8 +69,9 @@
                             <button   type="button" class="btn btn-primary btn-lg " id="btn-predict" style="margin-top:25px;">Predict!</button>
                         </div>
 						<div class="loader" style="display:none;"></div>
-                       <figure> <img width="256" height="256"  src="static/images/img2.png" id="result" alt="gh" style="margin-top:45px;"> </figure> 
-                       
+                        
+                       <!-- <figure> <img width="256" height="256"  src="static/images/img2.png" id="result" alt="gh" style="margin-top:45px;"> </figure>  -->
+                       <img width="256" height="256" src="{{ url_for('static', filename=graph) }} id="result" style="margin-top:45px;"/>
                        <h6 style="color:rgb(194, 194, 194);">Colored Image </h6>
                     </div>
                 </div>
