@@ -1,6 +1,8 @@
 
 # ColorVibes
 
+![Logo](https://github.com/AmitNikhade/colorvibes/blob/master/logo.png?raw=true)
+
 A deep learning application that converts the Black & white images to colored ones, which brings life to the image.
 
 
