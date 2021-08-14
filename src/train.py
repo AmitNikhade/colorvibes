@@ -57,7 +57,7 @@ learning_rate_reduction = ReduceLROnPlateau(monitor='loss',
                                             min_lr=0.00001)
 
 # # Saving Model
-filepath = "model/Model_final.h5"
+filepath = "static/model/Model_final2.h5"
 checkpoint = ModelCheckpoint(filepath,
                              save_best_only=True,
                              monitor='loss',
