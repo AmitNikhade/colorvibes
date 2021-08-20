@@ -17,6 +17,7 @@ A deep learning application that converts the Black & white images to colored on
 
 Add badges from somewhere like: [shields.io](https://shields.io/)
 
+[![BCH compliance](https://bettercodehub.com/edge/badge/AmitNikhade/colorvibes?branch=master)](https://bettercodehub.com/)
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
 ## Usage/Installation
